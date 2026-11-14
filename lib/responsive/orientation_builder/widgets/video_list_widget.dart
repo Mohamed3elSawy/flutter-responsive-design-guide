@@ -25,16 +25,20 @@ class VideoListWidget extends StatelessWidget {
             ],
           ),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Thumbnail
               Stack(
                 children: [
                   Container(
-                    width: 110,
-                    height: 75,
+                    width: 90,
+                    height: 65,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.deepPurple.shade700, Colors.white],
+                        colors: [
+                          Colors.deepPurple.shade700,
+                          Colors.deepPurple.shade200,
+                        ],
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -42,7 +46,7 @@ class VideoListWidget extends StatelessWidget {
                       child: Icon(
                         Icons.play_circle_fill_rounded,
                         color: Colors.white,
-                        size: 34,
+                        size: 30,
                       ),
                     ),
                   ),
@@ -52,8 +56,8 @@ class VideoListWidget extends StatelessWidget {
                     bottom: 6,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 6,
-                        vertical: 3,
+                        horizontal: 5,
+                        vertical: 2,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.black87,
@@ -61,14 +65,14 @@ class VideoListWidget extends StatelessWidget {
                       ),
                       child: const Text(
                         "12:34",
-                        style: TextStyle(color: Colors.white, fontSize: 10),
+                        style: TextStyle(color: Colors.white, fontSize: 9),
                       ),
                     ),
                   ),
                 ],
               ),
 
-              const SizedBox(width: 14),
+              const SizedBox(width: 10),
 
               Expanded(
                 child: Column(
@@ -80,55 +84,65 @@ class VideoListWidget extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 14,
                         color: Color(0xff1E293B),
-                      ),
-                    ),
-
-                    const SizedBox(height: 6),
-
-                    Text(
-                      'Flutter Academy',
-                      style: TextStyle(
-                        color: Colors.grey.shade700,
-                        fontSize: 13,
                       ),
                     ),
 
                     const SizedBox(height: 4),
 
-                    Row(
+                    Text(
+                      'Flutter Academy',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Colors.grey.shade700,
+                        fontSize: 12,
+                      ),
+                    ),
+
+                    const SizedBox(height: 4),
+
+                    Wrap(
+                      spacing: 10,
+                      runSpacing: 4,
                       children: [
-                        Icon(
-                          Icons.visibility_outlined,
-                          size: 14,
-                          color: Colors.grey.shade600,
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.visibility_outlined,
+                              size: 12,
+                              color: Colors.grey.shade600,
+                            ),
+                            const SizedBox(width: 3),
+                            Text(
+                              '1M views',
+                              style: TextStyle(
+                                color: Colors.grey.shade600,
+                                fontSize: 11,
+                              ),
+                            ),
+                          ],
                         ),
 
-                        const SizedBox(width: 4),
-
-                        Text(
-                          '1M views',
-                          style: TextStyle(
-                            color: Colors.grey.shade600,
-                            fontSize: 12,
-                          ),
-                        ),
-
-                        const SizedBox(width: 12),
-
-                        Icon(
-                          Icons.schedule,
-                          size: 14,
-                          color: Colors.grey.shade600,
-                        ),
-
-                        Text(
-                          '2 days ago',
-                          style: TextStyle(
-                            color: Colors.grey.shade600,
-                            fontSize: 12,
-                          ),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.schedule,
+                              size: 12,
+                              color: Colors.grey.shade600,
+                            ),
+                            const SizedBox(width: 3),
+                            Text(
+                              '2 days ago',
+                              style: TextStyle(
+                                color: Colors.grey.shade600,
+                                fontSize: 11,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -136,7 +150,9 @@ class VideoListWidget extends StatelessWidget {
                 ),
               ),
 
-              Icon(Icons.more_vert, color: Colors.grey.shade600),
+              const SizedBox(width: 4),
+
+              Icon(Icons.more_vert, size: 18, color: Colors.grey.shade600),
             ],
           ),
         );
